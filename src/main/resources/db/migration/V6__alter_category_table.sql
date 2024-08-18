@@ -1,0 +1,1 @@
+ALTER TABLE `category` ADD FOREIGN KEY (`product_id`) REFERENCES `product` (`id`);
