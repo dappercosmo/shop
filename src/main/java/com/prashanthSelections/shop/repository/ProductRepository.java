@@ -10,5 +10,5 @@ import java.util.List;
 public interface ProductRepository extends JpaRepository<Product, Long> {
 
     List<Product> findByIsDeletedFalse();
-    Product findByIsDeletedFalse(long id);
+    //Product findByIsDeletedFalse(long id);
 }
