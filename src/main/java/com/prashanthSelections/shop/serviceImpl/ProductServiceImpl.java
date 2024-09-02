@@ -27,13 +27,14 @@ public class ProductServiceImpl implements ProductService {
         product.setPrice(productDto.getPrice());
         //product.setCreatedOn(new Date());
         product.setDeleted(false);
-        productRepository.save(product);
-        return ProductMapper.toDto(product);
+        Product savedProduct = productRepository.save(product);
+        return ProductMapper.toDto(savedProduct);
     }
 
     @Override
     public ProductDto getProductById(Long id) {
-        return null;
+        Product product = productRepository.findById(id).orElseThrow(() -> new ProductNotFoundException("Product not found"));
+        return ProductMapper.toDto(product);
     }
 
     @Override
